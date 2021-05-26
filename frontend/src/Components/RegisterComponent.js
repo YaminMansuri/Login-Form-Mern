@@ -39,23 +39,24 @@ const RegisterComponent = () => {
     setPassword(event.target.value);
   };
 
+  const emptyFieldsHandler = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+  };
+
   const signUpHandler = async () => {
     try {
-      const response = await axios.post("/api/register", {
+      await axios.post("/api/register", {
         name: name,
         email: email,
         password: password,
       });
-      if (response) {
-        console.log(response);
-        setError(false);
-        setSuccess(true);
-        setOpen(true);
+      setError(false);
+      setSuccess(true);
+      setOpen(true);
 
-        setName("");
-        setEmail("");
-        setPassword("");
-      }
+      emptyFieldsHandler();
     } catch (error) {
       setError(true);
       setSuccess(false);

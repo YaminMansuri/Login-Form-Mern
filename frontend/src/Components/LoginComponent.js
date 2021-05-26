@@ -33,19 +33,22 @@ const LoginComponent = () => {
     setPassword(event.target.value);
   };
 
+  const emptyFieldsHandler = () => {
+    setEmail("");
+    setPassword("");
+  };
+
   const signInHandler = async () => {
     try {
-      const response = await axios.post("/api/login", {
+      await axios.post("/api/login", {
         email: email,
         password: password,
       });
-      console.log(response);
       setError(false);
       setSuccess(true);
       setOpen(true);
 
-      setEmail("");
-      setPassword("");
+      emptyFieldsHandler();
     } catch (error) {
       setError(true);
       setSuccess(false);

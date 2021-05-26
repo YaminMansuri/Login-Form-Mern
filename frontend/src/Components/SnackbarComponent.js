@@ -10,15 +10,12 @@ const Alert = (props) => {
 const SnackbarComponent = (props) => {
   const { open, setOpen, status } = props;
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
+  const handleClose = () => {
     setOpen(false);
   };
 
   return (
-    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <Snackbar open={open} autoHideDuration={3500} onClose={handleClose}>
       <Alert onClose={handleClose} severity={status}>
         {props.children}
       </Alert>
