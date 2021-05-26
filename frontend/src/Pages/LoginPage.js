@@ -12,6 +12,9 @@ const useStyles = makeStyles(() => {
       width: 300,
       margin: "20px auto",
     },
+    fullHeight: {
+      height: "100vh",
+    },
   };
 });
 
@@ -19,7 +22,7 @@ const LoginPage = () => {
   const loginPageStyle = useStyles();
 
   return (
-    <Grid container>
+    <Grid container alignItems="center" className={loginPageStyle.fullHeight}>
       <Paper elevation={10} className={loginPageStyle.paperStyle}>
         <Grid item align="center">
           <LoginComponent />

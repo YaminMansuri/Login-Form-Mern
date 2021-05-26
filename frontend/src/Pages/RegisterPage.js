@@ -12,6 +12,9 @@ const useStyles = makeStyles(() => {
       width: 300,
       margin: "20px auto",
     },
+    fullHeight: {
+      height: "100vh",
+    },
   };
 });
 
@@ -19,7 +22,11 @@ const RegisterPage = () => {
   const registerPageStyle = useStyles();
 
   return (
-    <Grid container>
+    <Grid
+      container
+      alignItems="center"
+      className={registerPageStyle.fullHeight}
+    >
       <Paper elevation={10} className={registerPageStyle.paperStyle}>
         <Grid item align="center">
           <RegisterComponent />

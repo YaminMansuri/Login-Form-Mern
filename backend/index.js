@@ -10,15 +10,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use("/api/", authRoute);
+
 dotenv.config();
 mongoose.connect(
   process.env.DB_CONNECT,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
-    console.log("Connected to db");
+    app.listen(5000);
   }
 );
-
-app.use("/api/", authRoute);
-
-app.listen(5000);
